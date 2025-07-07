@@ -1,0 +1,616 @@
+
+#addition
+#addition
+6+9
+6+9
+
+#subtraction
+9-5
+
+#division
+14/2
+20/2
+
+#multiplication
+4*7
+4*10
+
+
+
+#assigning values to variables
+genome_length <- 20000
+
+genome_length
+
+#set another variable
+multiplication_result <- 4*10
+
+
+#manipulating variables
+
+genome_length * 500
+
+gl500 <- genome_length * 500
+
+up_genes <- "BRCA1"
+
+(up_genes2 <- "NPY")
+
+
+(genome_lengthx5000 <- genome_length * 5000)
+
+  
+#basic functions
+#function
+sqrt(100)
+(sr100 <- sqrt(100))
+
+sqrt(genome_length)
+
+(glsqrt <- sqrt(genome_length))
+
+
+
+#approximation
+
+round(4.123, 0)
+
+(GC_content <- round(5.7532456, 3))
+
+
+
+round(digits = 3, x = 5.7532456)
+round(x = 5.7532456, digits = 3)
+
+
+
+
+#vector 
+(e_coli_k12 <- c(56, 2, 45, 89, 23, 47))
+
+e_coli_k12 <- c(56, 12, 57, 45, 90, 79000)
+
+(degs <- c("NPY", "CALB", "SST", "GAD1", "CALCA"))
+
+
+#check for the value class
+class(e_coli_k12)
+class(degs)
+
+class(degs)
+class(e_coli_k12)
+
+#check length
+length(degs)
+ldeg <- length(degs)
+
+#checking the attributes of a variable
+str(degs)
+
+
+#appending values to vectors
+
+(updated_degs <- c(degs, "PARK", "APOE"))
+
+updated_degs
+
+updated_degs2 <- c("PARK", "APOE", degs )
+
+updated_degs2
+
+
+#creating a subset of vectors
+
+genex <- updated_degs2[1]
+updated_degs2[c(1, 2, 7)]
+
+(gene5 <- updated_degs2[5])
+(gene56 <-  updated_degs2[c(5,6)])
+
+#subtracting values
+updated_degs2[-6]
+
+
+minus6 <-  updated_degs2[-6]
+minus6
+updated_degs2[c(-1, -6)]
+
+updated_degs2[c(-5, -3)]
+
+updated_degs2[-c(5, 3)]
+
+
+#conditional subsetting
+
+
+e_coli_k12[c(FALSE, TRUE, FALSE, FALSE, TRUE, FALSE)]
+
+#subsetting with comparison operator & |
+e_coli_k12 > 57
+e_coli_k12[e_coli_k12 > 57]
+
+e_coli_k12[e_coli_k12 > 45]
+e_coli_k12[e_coli_k12 < 57]
+
+e_coli_k12[e_coli_k12 < 10 | e_coli_k12 == 50000]
+
+e_coli_k12[e_coli_k12 < 90 & e_coli_k12 == 45]
+
+#Assigning name to a  vector
+updated_degs2 
+
+ 
+names(updated_degs2) <- c("A", "B", "C", "D", "E", "F", "G")
+
+names(updated_degs2)
+updated_degs2
+
+degs
+degs[c(1, 5)]
+
+updated_degs2[c(1, 6)]
+
+#handling missing values
+(genome_features <- c(10, 20, NA , 40, 50, 60))
+
+
+
+#ignore missing value
+
+mean(genome_features, na.rm = TRUE)
+
+#to extract missing values
+
+genome_features[is.na(genome_features)]
+
+#extract the values that are not missing 
+
+genome_features[!is.na(genome_features)]
+
+
+#loading libraries
+
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(tidyr)
+
+unique_identifier <- c(10, 20, 30, 40, 50, 60)
+
+sample_id <- c(35, 40, 66, 90, 34, 22)
+
+#check if a value is in a variable
+sample_id %in% unique_identifier
+
+
+#setting working directory
+setwd("C:\\Users\\user\\Desktop\\Bioc-class")
+
+#reading data from folder
+rnadata <- read.csv("sample_data.csv")
+
+view(rnadata)
+
+#check dimension of the data
+dim(rnadata) 
+#check structure
+
+str(rnadata)
+
+#check no of rows
+nrow(rnadata)
+
+
+#check no of columns
+ncol(rnadata)
+
+#check first 6 rows
+head(rnadata)
+
+head(rnadata, 6)
+
+#check last 6 rows
+
+tail(rnadata)
+
+#summary of our dataframe
+summary(rnadata)
+
+#subsetting dataframe
+#structure of selecting a column from a dataframe 
+#data$column_name
+
+#extracting product column frmo rnadata and storing in product variable
+product <- rnadata$product
+
+#seeing the first 6 stored variable
+head(product)
+
+#first 10 product
+product_first10 <- head(rnadata$product, 10)
+product_first10
+#last 10 product
+
+product_last10 <- tail(rnadata$product, 10)
+product_last10
+
+#extracting gene column from rnadata
+rnadata$gene
+rnadata["gene"]
+
+
+#selecting rows and columns (x means rows and y means columns)
+# data[x,y]
+
+#select the first row
+
+rnadata[1,]
+
+#select the second row
+row2 <- rnadata[2,]
+
+#select the first column
+rnadata[,1]
+
+#select the second column
+rnadata[,2]
+
+#select the third row and fifth column
+rnadata[3,5]
+
+#select the  1000th row and the sixth column
+rnadata[1000, 6]
+
+#select all but first column (delete first column)
+geneless_table <- rnadata[,-1]
+
+#select all but first row (delete first row)
+row1less_table <- rnadata[-1,]
+
+#deleting first row and storing the result in a variable
+rnadata_without_first_column <- rnadata[,-1]
+
+#delete row 10-5000
+rnadata[c(-10:-5000),]
+rnadata[-c(10:5000),]
+
+
+#data[x, y]
+#delete columns 10-19
+rnadata[, c(-10:-19)]
+rnadata[, -c(10:19)]
+
+
+#FACTOR
+sex <- factor(c("male", "female", "male", "female", "female", "female", "female"))
+
+#check levels
+levels(sex)
+
+
+#check levels number
+nlevels(sex)
+
+
+#to bring male first
+(sex <- factor(sex, levels = c("male", "female")))
+
+#to bring female first
+(sex2 <- factor(sex, levels = c("female", "male")))
+
+plot(sex)
+
+
+#plot number of male and female from our rnadata
+sex_data <- rnadata$sex #select sex column from rnadata table and assign it to sex_data variable
+sex_data_level <- factor(sex_data) #find the factor of the sex_data and assign it to sex_data_level variable
+plot(sex_data_level)
+
+
+#matrix
+(mat <- matrix(1:9, ncol = 3, nrow =3))
+(mat2 <- matrix(1:116, ncol = 4, nrow = 4))
+
+#creating a matrix of my installed packages
+package <- installed.packages()
+
+#checking the number of columns
+ncol(package)
+
+
+#checking the number of rows
+nrow(package)
+
+#list
+#create a list
+
+list_random <- list(1:20, letters, package, rnadata$ensembl_gene_id)
+
+#load rna data with read_csv in tidyverse
+rnadata <- read_csv("sample_data.csv")
+
+#using select function in tidyverse
+#structure of select function
+#select(data, column1, column2, column3)
+
+sub_data <- select(rnadata, gene, age, sex, tissue, expression)
+
+#structure of filter function
+#filter(data, set column_to_use and condition)
+
+sub_data_female <- filter(sub_data, sex == "Female")
+view(sub_data_female)
+
+#filter
+data_male <- filter(rnadata, sex == "Male") #male only
+view(data_male)
+
+data_non_inf <- filter(rnadata, infection == "NonInfected")                #noninfected only
+
+#filter(data, set column_to_use and condition)
+data_fem_and_inf <- filter(rnadata, infection =="InfluenzaA" & sex == "Female") #female and infected
+
+data_fem_inf2 <- filter(rnadata, infection =="InfluenzaA" | sex == "Female") #female or infected
+
+
+rna_sub <- select(rnadata, gene, sample, sex, time, expression)
+
+#mutate
+#mutate function structure
+# mutate(data, new_column = oldcolumn that is manipulated)
+#example 1
+mut_rna_sub <- mutate(rna_sub, half_expressed = expression/2)
+
+#example 2
+mut_rna_sub <- mutate(rna_sub, half_expressed = expression/2,
+                      twice_expressed = expression*2,
+                      logtwice_expressed = log10(twice_expressed))
+
+
+
+modified_rnadata <- mutate(rnadata, log2_exp = log2(expression))
+#select expression and newly created log2_exp column
+select(modified_rnadata, expression, log2_exp)
+
+#modify time column and use it to create a new column
+mod_time <- mutate(rnadata, time_days = time / 24)
+mod_time_month <- mutate(rnadata, time_months = time / 720)
+
+
+#pipe 
+# pipe structure %>%
+
+rnadata %>%
+  mutate(half_expression = expression/2) %>% 
+  select(gene, chromosome_name, half_expression ,expression, sample) %>% 
+  filter(chromosome_name == "X")
+
+#without pipe you go through this stressful process
+mtdata <- mutate(rnadata, half_expression = expression/2)
+slmtdata <- select(mtdata, chromosome_name, half_expression ,expression, sample)
+ftslmtdata <- filter(slmtdata, chromosome_name == "X")
+
+#with pipe, less stress!
+ftslmtdata <- rnadata %>% 
+  mutate(half_expression = expression/2) %>% 
+  select(chromosome_name, half_expression ,expression, sample) %>% 
+  filter(chromosome_name == "X")
+
+
+
+#group_by
+#group_by gene
+
+#grouping without pipe
+group_by(rnadata, sample)
+
+# grouping with pipe
+rnadata %>%
+  group_by(sample)
+
+#create subset data variable  
+subset_data <- rnadata %>% 
+  select(gene, expression, time)
+
+summary_ssdata <- subset_data %>% 
+  group_by(time) %>%
+  summarise(mean(expression))
+
+#summarize() is used to count
+subset_data %>% 
+  group_by(gene) %>% 
+  summarize(mean_expression = mean(expression))
+
+#group by many column
+rnadata %>% 
+  group_by(gene, infection, time) %>% 
+  summarize(mean_expression = mean(expression))
+
+#group by many columns and summarize with two values
+view(rnadata %>% 
+  group_by(gene, infection, time) %>% 
+  summarize(mean_expression = mean(expression), median_expression = median(expression)))
+
+#calculate mean_expression of Aamp at different time points
+rnadata %>% 
+  filter(gene == "Apod") %>% 
+  group_by(time, infection) %>% 
+  summarize(mean_expression = mean(expression))
+
+#finding the number of infected and non-infected samples
+#counting without using pipe
+count(rnadata, infection)
+
+#counting using pipe
+rnadata %>% 
+  count(infection)
+
+
+#alternatively
+rnadata %>% 
+  group_by(infection) %>% 
+  summarize(count = n())
+
+# arranging time in descending order
+rnadata %>% 
+  count(infection, time) %>% 
+  arrange(desc(time))
+
+
+
+
+# find the number of gene in each biotype in any sample
+rnadata %>% 
+  filter(sample == "GSM2545336") %>% 
+  count(gene_biotype) %>% 
+  arrange(desc(n))
+
+
+
+#convert to gene count file with pivot wider
+#We need to reshape our data
+#pivot_wider(names_from = column1, values_from = column2, values_fill = 0)
+
+
+
+data_shaped <- rnadata %>% 
+  select(gene, sample, expression)
+
+count_file <- data_shaped %>% 
+  pivot_wider(names_from = sample, values_from = expression, values_fill = 0)
+
+write.csv(count_file, file = "count_matrix.csv", row.names = FALSE)
+
+#pivot_longer
+count_reconverted <- count_file %>% 
+  pivot_longer(names_to = "sample", values_to = "expression", -gene)
+
+
+
+#joining table with full_join function
+annotation_file <-  read_csv("annotation.csv")
+annotation_file
+
+small_rna <- rnadata %>% 
+  select(gene, sample, expression)
+
+small_rna <- head(small_rna, 10)
+
+small_rna
+
+#joining now
+view(full_join(small_rna, annotation_file))
+
+
+#visualization
+
+# r graphics cookbook (download and read)
+
+#data, coordinate system, geom function
+
+#structure
+# ggplot(data = nameofyourdata, mapping= aes(mappings)) + geom function
+# geom_line()
+# geom_histogram()
+# geom_point()
+
+ggplot(data = rnadata, mapping = aes(x = expression)) + geom_histogram()
+
+#log_transform
+rnadata <- rnadata %>% 
+  mutate(expression_log = log2(expression+1))
+
+ggplot(data = rnadata, mapping = aes(x = expression_log)) + geom_histogram() 
+
+
+#scatter plot
+rna_scatter <- rnadata %>% 
+  select(gene, time,gene_biotype, expression_log) %>%
+  group_by(gene, time, gene_biotype) %>%
+  summarize(mean_expression = mean(expression_log)) %>%
+  pivot_wider(names_from = time,
+              values_from = mean_expression) %>%
+  mutate(time_8_vs_0 = `8` - `0`, time_4_vs_0 = `4` - `0`)
+
+#plot
+ggplot(data = rna_scatter, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
+  geom_point(alpha = 0.1, aes(color = gene_biotype))
+
+
+#line plot
+rna_sd <- rna_scatter %>% 
+  arrange(desc(time_8_vs_0))
+
+selected_gene <- rna_scatter$gene[1:10]
+
+
+rna_plot <- rnadata %>% 
+  filter(gene %in% selected_gene) 
+
+
+
+mean_exp_by_time <- rna_plot %>% 
+  group_by(gene, time) %>% 
+  summarize(mean_exp = mean(expression_log))
+
+
+ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp, group = gene)) + geom_line()
+
+
+#facet to split the lines into different plot
+ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)) + geom_line() + facet_wrap(~gene, scales = "free_y")
+
+
+# Now let's see the expression of genes by sex per time stamp
+
+mean_exp_by_time_and_sex <- rna_plot %>%
+  group_by(gene, time, sex) %>%
+  summarize(mean_exp = mean(expression_log))
+
+# make a plot of gene expression per time in both sexes
+ggplot(data = mean_exp_by_time_and_sex,
+       mapping = aes(x = time, y = mean_exp, color = sex)) +        #we set color to sex here to color the expression by the distinct sex in our dataframe
+  geom_line() +
+  facet_wrap(~ gene, scales = "free_y")
+
+
+#let's do some modification to our plot
+
+# I want to remove the grid lines and set the background to white
+
+ggplot(data = mean_exp_by_time_and_sex,                         
+       mapping = aes(x = time, y = mean_exp, color = sex)) +   # x = time (we set x to time because we want x on our x axis and mean_exp on our y axis)     
+  geom_line() +                                              # you can break the code to make it easily readable by pressing enter after each "+" sign
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +                                  #to set the background to white  
+  theme(panel.grid = element_blank())+              #to remove the grid line
+  labs(title = "Mean gene expression by timestamp in the sexes",              #labs is used to label the plot (x = xaxislabel, y = yaxislabel, title = label of the plot)
+       x = "timestamps",
+       y = "Mean gene expression")+
+  theme(text = element_text(size = 14))                  #you can change the size to increase or decrease the value
+
+
+
+#if you are a fan of gridlines in your plot and would like to keep it, 
+#you can modify it to suit your taste just copy the code above and modify it
+
+png("gene_exp_by_sex.png", width = 400, height = 500)
+ggplot(data = mean_exp_by_time_and_sex,                         
+       mapping = aes(x = time, y = mean_exp, color = sex)) +   
+  geom_line() +                                    
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +                                  
+  theme(panel.grid = element_blank())+             
+  labs(title = "Mean gene expression by timestamp in the sexes",              
+       x = "timestamps",
+       y = "Mean gene expression")+              # We can customize the background and theme of our plot by passing some argument into theme()
+  theme(text = element_text(size = 19),
+        axis.text.x = element_text(colour = "royalblue4", size = 12),    #specify color of the xaxis label and size to specify the size    
+        axis.text.y = element_text(colour = "royalblue4", size = 12),    ##specify color of the yaxis label and size to specify the size
+        panel.grid = element_line(colour="lightblue"),   #background color
+        legend.position = "top")
+dev.off()
+
+#note: you can search for r color code on google to see the names of the color you like and input it in the code above
+
+
